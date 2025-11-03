@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="uz">
+<head>
+    <meta charset="UTF-8">
+    <title>Yangi vazifa qo‘shish</title>
+</head>
+<body>
+    <h1>Yangi vazifa qo‘shish</h1>
+
+    <form method="POST">
+        {% csrf_token %}
+        <label for="title">Vazifa nomi:</label><br>
+        <input type="text" id="title" name="title" placeholder="Vazifa nomini kiriting" required><br><br>
+
+        <label for="description">Tavsif:</label><br>
+        <textarea id="description" name="description" rows="4" cols="40" placeholder="Vazifa haqida qisqacha yozing"></textarea><br><br>
+
+        <label for="priority">Ustuvorlik:</label><br>
+        <select id="priority" name="priority" required>
+            <option value="">Tanlang</option>
+            <option value="low">Past</option>
+            <option value="medium">O‘rta</option>
+            <option value="high">Yuqori</option>
+        </select><br><br>
+
+        <label for="status">Holati:</label><br>
+        <select id="status" name="status" required>
+            <option value="">Tanlang</option>
+            <option value="todo">Bajarilmagan</option>
+            <option value="inprogress">Jarayonda</option>
+            <option value="done">Bajarilgan</option>
+        </select><br><br>
+
+        <label for="deadline">Muddati:</label><br>
+        <input type="date" id="deadline" name="deadline" required><br><br>
+
+        <button type="submit">Qo‘shish</button>
+    </form>
+
+    <p><a href="{% url 'todos:list' %}">Orqaga qaytish</a></p>
+</body>
+</html>
